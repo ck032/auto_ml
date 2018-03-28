@@ -224,7 +224,7 @@ class DataFrameVectorizer(BaseEstimator, TransformerMixin):
             encoded_col_names = []
 
             for trained_feature, col_idx in self.vocabulary_.items():
-                if trained_feature[:len_col_name] == col_name:
+                if trained_feature[:len_col_name] == col_name and '=' in trained_feature:
                     encoded_col_names.append([trained_feature, col_idx])
                     num_trained_cols += 1
                     if min_transformed_idx is None:
